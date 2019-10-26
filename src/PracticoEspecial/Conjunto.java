@@ -25,7 +25,7 @@ public class Conjunto implements Ganaderia {
 		for(Ganaderia g: animales) {
 			peso+=g.getPesoTotal();
 		}
-		return peso;
+		 return peso;
 		
 	}
 	public double getPromPeso() {
