@@ -1,6 +1,6 @@
 package PracticoEspecial;
 
-public class Animal {
+public class Animal implements Ganaderia {
 	private int id;
 	private int edad;
 	private double peso;
