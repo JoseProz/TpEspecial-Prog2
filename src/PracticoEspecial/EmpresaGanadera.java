@@ -9,9 +9,9 @@ public class EmpresaGanadera {
 		Conjunto rebaño= new Conjunto();
 		
 		
-		Animal vacaLola= new Animal(0, 1, 400, "Holando", "Hembra", false, 2);
+		Animal vacaLola= new Animal(0, 1, 650, "Holando", "Hembra", false, 2);
 		Animal toroLolo= new Animal(1, 3, 450, "jjj", "Macho", true, 0);
-		Animal vacaAura= new Animal(2, 2, 300, "fff", "Hembra", false, 4);
+		Animal vacaAura= new Animal(2, 2, 600, "fff", "Hembra", false, 4);
 		Animal vacaChiva= new Animal(3, 1, 200, "uuu", "Hembra", false, 0);
 		Animal toroAuro= new Animal(4, 5, 600, "toruno", "Macho", false, 0);
 		Animal vacaTrina= new Animal(5, 2, 400, "muuu", "Hembra", false, 2);
@@ -30,6 +30,8 @@ public class EmpresaGanadera {
 		
 		double edad=rodeo.getPesoTotal();
 		System.out.println(edad);
+		CriterioPeso  peso= new CriterioPeso(500);
+		System.out.println(empresa.PesoMayorA(peso));
 	}
 
 }

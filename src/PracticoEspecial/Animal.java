@@ -19,6 +19,7 @@ public class Animal implements Ganaderia {
 		this.paridos=par;
 	}
 	
+	
 	public int getCantAnimales() {
 		return 1;
 	}

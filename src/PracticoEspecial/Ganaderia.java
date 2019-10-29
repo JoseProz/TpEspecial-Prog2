@@ -5,6 +5,7 @@ public interface Ganaderia {
 	public abstract double getPesoTotal(); 
 	public abstract double getPromEdad();
 	public abstract double getPromPeso();
+	public abstract double getPeso();
 	
 	
 

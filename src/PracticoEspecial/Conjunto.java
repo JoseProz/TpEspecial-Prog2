@@ -11,6 +11,26 @@ public class Conjunto implements Ganaderia {
 	 public void add(Ganaderia g) {
 		 animales.add(g);
 	 }
+	 
+	public ArrayList<Ganaderia>PesoMayorA(CriterioPeso p){
+		ArrayList<Ganaderia>animalesPeso=new ArrayList<>();
+		for(Ganaderia g:animales) {
+			if(p.Cumple(g)) {
+				animalesPeso.add(g);
+			}
+		}
+		return animalesPeso;
+	}
+	//este es el metodo para que funcione el CriterioPeso
+	public double getPeso() {
+		double Peso=0;
+		for(Ganaderia g:animales) {
+			Peso+=g.getPeso();
+		}
+			return Peso/animales.size();
+			
+	}
+	
 	
 	public int getCantAnimales() {
 		int suma=0;
