@@ -3,23 +3,36 @@ import java.util.ArrayList;
 
 public class Conjunto implements Ganaderia {
 	ArrayList<Ganaderia>animales;
+	private String nombre;
 
-	 public Conjunto() {
+	 public Conjunto(String n) {
 		 animales= new ArrayList<Ganaderia>();
+		 this.nombre=n;
 		 
 	 }
 	 public void add(Ganaderia g) {
 		 animales.add(g);
 	 }
 	 
-	public ArrayList<Ganaderia>PesoMayorA(CriterioPeso p){
-		ArrayList<Ganaderia>animalesPeso=new ArrayList<>();
+	public ArrayList<Ganaderia>filtro(Criterio p){
+		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
 		for(Ganaderia g:animales) {
 			if(p.Cumple(g)) {
-				animalesPeso.add(g);
+				animalesFiltrados.addAll(g.filtro(p));
 			}
 		}
-		return animalesPeso;
+		return animalesFiltrados;
+	}
+	
+	@Override
+	public String toString() {
+		return "Conjunto=" + nombre;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	//este es el metodo para que funcione el CriterioPeso
 	public double getPeso() {
@@ -30,6 +43,7 @@ public class Conjunto implements Ganaderia {
 			return Peso/animales.size();
 			
 	}
+	
 	
 	
 	public int getCantAnimales() {

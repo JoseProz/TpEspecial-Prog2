@@ -1,5 +1,7 @@
 package PracticoEspecial;
 
+import java.util.ArrayList;
+
 public class Animal implements Ganaderia {
 	private int id;
 	private int edad;
@@ -18,7 +20,14 @@ public class Animal implements Ganaderia {
 		this.capado=c;
 		this.paridos=par;
 	}
-	
+	public ArrayList<Ganaderia>filtro(Criterio p){
+		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
+		
+			if(p.Cumple(this)) {
+				animalesFiltrados.add(this);
+			}
+		return animalesFiltrados;
+	}
 	
 	public int getCantAnimales() {
 		return 1;
@@ -52,6 +61,12 @@ public class Animal implements Ganaderia {
 	public double getPeso() {
 		return peso;
 	}
+
+	@Override
+	public String toString() {
+		return "Animal id=" + id + ", raza=" + raza;
+	}
+
 
 	public void setPeso(double peso) {
 		this.peso = peso;
