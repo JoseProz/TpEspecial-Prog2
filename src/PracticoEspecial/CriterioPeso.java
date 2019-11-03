@@ -5,8 +5,8 @@ public class CriterioPeso implements Criterio {
 	public CriterioPeso(double p) {
 		this.Peso=p;
 	}
-	public boolean Cumple(Ganaderia g) {
-		return g.getPeso()>=this.Peso;
+	public boolean compare(Ganaderia g) {
+		return g.getPromPeso()>=this.Peso;
 	}
 
 }

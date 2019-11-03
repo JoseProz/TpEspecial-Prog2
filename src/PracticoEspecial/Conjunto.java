@@ -17,13 +17,28 @@ public class Conjunto implements Ganaderia {
 	public ArrayList<Ganaderia>filtro(Criterio p){
 		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
 		for(Ganaderia g:animales) {
-			if(p.Cumple(g)) {
+			if(p.compare(g)) {
 				animalesFiltrados.addAll(g.filtro(p));
 			}
 		}
 		return animalesFiltrados;
 	}
 	
+	//filtro unitario
+	public ArrayList<Ganaderia>filtroXAnimal(Criterio p){
+		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
+		for(Ganaderia g:animales) {
+				animalesFiltrados.addAll(g.filtroXAnimal(p));
+			}
+		return animalesFiltrados;
+	}
+	public String getRaza() {
+		return nombre;
+	}
+	
+	public int getEdad() {
+		return this.getEdad();
+	}
 	@Override
 	public String toString() {
 		return "Conjunto=" + nombre;
@@ -34,15 +49,18 @@ public class Conjunto implements Ganaderia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	//este es el metodo para que funcione el CriterioPeso
-	public double getPeso() {
-		double Peso=0;
+	
+	
+	
+	/*public ArrayList<Ganaderia>filtroPesoXanimal(Criterio p){
+		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
 		for(Ganaderia g:animales) {
-			Peso+=g.getPeso();
+			if(p.Cumple(g)) {
+				animalesFiltrados.addAll(g.filtroPesoXanimal(p));
+			}
 		}
-			return Peso/animales.size();
-			
-	}
+		return animalesFiltrados;
+	}*/
 	
 	
 	
@@ -62,6 +80,7 @@ public class Conjunto implements Ganaderia {
 		 return peso;
 		
 	}
+	//este es el metodo para que funcione el CriterioPeso
 	public double getPromPeso() {
 		double peso=0;
 		for(Ganaderia g: animales) {
@@ -76,6 +95,7 @@ public class Conjunto implements Ganaderia {
 		}
 		
 	}
+
 	
 	public double getPromEdad(){
 		double edad=0;

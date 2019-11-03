@@ -1,6 +1,6 @@
 package PracticoEspecial;
 
 public interface Criterio {
-	public boolean Cumple(Ganaderia g);
+	public boolean compare(Ganaderia g);
 
 }
