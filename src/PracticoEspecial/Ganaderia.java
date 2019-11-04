@@ -1,6 +1,8 @@
 package PracticoEspecial;
 import java.util.ArrayList;
 
+
+
 public interface Ganaderia {
 	public abstract int getCantAnimales(); 
 	public abstract double getPesoTotal(); 

@@ -1,5 +1,7 @@
 package PracticoEspecial;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Camion {
 	private int id;
@@ -56,20 +58,25 @@ public class Camion {
 
 	public void addAnimal(Ganaderia g) {
 		ArrayList<Ganaderia> lista=new ArrayList<Ganaderia>();
+		Set<Ganaderia>antiduplicado=new HashSet<Ganaderia>();
 		for(Criterio c: condiciones) {
-			lista=g.filtroXAnimal(c);
+			lista.addAll(g.filtroXAnimal(c));
+		}
+			antiduplicado.addAll(lista);
+			lista.clear();
+			lista.addAll(antiduplicado);
+			
 			for(int i=0;i<lista.size();i++) {
-				
+			
 			if(animales.size()<capacidad) {
 					animales.add(lista.get(i));
 			}
 			
 			}
 		}
+		}
 		
-	}
-	
+		
 	
 	
 
-}

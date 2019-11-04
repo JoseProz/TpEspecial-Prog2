@@ -11,19 +11,19 @@ public class EmpresaGanadera {
 		Conjunto manada= new Conjunto("manada");
 		
 		
-		Animal vacaLola= new Animal(0, 1, 650, "Holando", "Hembra", false, 2);
-		Animal toroLolo= new Animal(1, 4, 800, "Holando", "Macho", true, 0);
-		Animal vacaAura= new Animal(2, 2, 600, "fff", "Hembra", false, 4);
-		Animal vacaChiva= new Animal(3, 1, 800, "uuu", "Hembra", false, 0);
-		Animal toroAuro= new Animal(4, 5, 600, "toruno", "Macho", false, 0);
-		Animal vacaTrina= new Animal(5, 2, 400, "muuu", "Hembra", false, 2);
-		Animal vacaLupa= new Animal(6, 4, 500, "waaa", "Hembra", false, 5);
-		Animal v1= new Animal(7, 3, 690, "Holando", "Hembra", false, 3);
-		Animal v2= new Animal(8, 5, 800, "hhh", "Hembra", false, 2);
-		Animal v3= new Animal(9, 5, 600, "Holando", "Hembra", false, 1);
-		Animal v4= new Animal(10, 1, 300, "ppp", "Macho", true, 0);
-		Animal v5= new Animal(11, 7, 800, "Toro", "Macho", false, 0);
-		Animal v6= new Animal(12, 2, 700, "Holando", "Hembra", false, 2);
+		Animal vacaLola= new Animal(0, 12, 650, "Holando", "Hembra", false, 2);
+		Animal toroLolo= new Animal(1, 48, 800, "Holando", "Macho", true, 0);
+		Animal vacaAura= new Animal(2, 24, 600, "fff", "Hembra", false, 4);
+		Animal vacaChiva= new Animal(3, 12, 800, "uuu", "Hembra", false, 0);
+		Animal toroAuro= new Animal(4, 60, 600, "toruno", "Macho", false, 0);
+		Animal vacaTrina= new Animal(5, 24, 400, "muuu", "Hembra", false, 2);
+		Animal vacaLupa= new Animal(6, 48, 500, "waaa", "Hembra", false, 5);
+		Animal v1= new Animal(7, 36, 690, "Holando", "Hembra", false, 3);
+		Animal v2= new Animal(8, 60, 800, "hhh", "Hembra", false, 2);
+		Animal v3= new Animal(9, 60, 600, "Holando", "Hembra", false, 1);
+		Animal v4= new Animal(10, 12, 300, "ppp", "Macho", true, 0);
+		Animal v5= new Animal(11, 84, 800, "Toro", "Macho", false, 0);
+		Animal v6= new Animal(12, 24, 700, "Holando", "Hembra", false, 2);
 		
 		manada.add(v1);
 		manada.add(v2);
@@ -50,18 +50,23 @@ public class EmpresaGanadera {
 		//System.out.println(empresa.filtro(or));
 		//CPesoXAnimal  peso= new CPesoXAnimal(600);
 		//System.out.println(multi.filtroXAnimal(peso));
-		CriterioRaza raza= new CriterioRaza("Holando");
-		CriterioEdad edad= new CriterioEdad(3);
+		CriterioRaza raza= new CriterioRaza("hhh");
+		CriterioEdad edad= new CriterioEdad(13);
 		//System.out.println(multi.filtroXAnimal(raza));
 		//CriterioOrXAnimal orA=new CriterioOrXAnimal(800, 5);
 		//System.out.println(multi.filtroXAnimal(orA));
-		Camion camion= new Camion(0, 3);
+		Camion camion= new Camion(0,10);
 		CriterioAnd and=new CriterioAnd(peso, edad);
 		camion.addCriterio(and);
-		//camion.addCriterio(raza);;
+		camion.addCriterio(raza);;
 		camion.addAnimal(empresa);
+		
+		Ministerio ministerio=new Ministerio("Ministerio");
+		Categoria lechal= new Categoria("lechal", edad);
+		ministerio.addCategoria(lechal);
+		ministerio.Categorizar(empresa);
 			
-		System.out.println(camion.getAnimales());
+		System.out.println(ministerio);
 
 	}
 
