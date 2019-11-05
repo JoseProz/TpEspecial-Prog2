@@ -40,17 +40,10 @@ public class Animal implements Ganaderia {
 	}
 	
 	
-	public ArrayList<Ganaderia>filtro(Criterio p){
-		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
+	public ArrayList<Animal>buscar(CriterioAnimal p){
+		ArrayList<Animal>animalesFiltrados=new ArrayList<>();
 		
-			if(p.compare(this)) {
-				animalesFiltrados.add(this);
-			}
-		return animalesFiltrados;
-	}
-	public ArrayList<Ganaderia>filtroXAnimal(Criterio p){
-		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
-		if(p.compare(this)) {
+			if(p.Cumple(this)) {
 				animalesFiltrados.add(this);
 			}
 		return animalesFiltrados;
@@ -62,11 +55,8 @@ public class Animal implements Ganaderia {
 	public double getPesoTotal() {
 		return this.peso;
 	}
-	public double getPromEdad() {
+	public int getEdadTotal() {
 		return this.edad;
-	}
-	public double getPromPeso() {
-		return this.peso;
 	}
 
 	public Integer getId() {
@@ -85,17 +75,13 @@ public class Animal implements Ganaderia {
 		this.edad = edad;
 	}
 
-	public double getPeso() {
-		return peso;
-	}
-
 	@Override
 	public String toString() {
 		return "Animal id=" + id + ", raza=" + raza;
 	}
 
 
-	public void setPeso(double peso) {
+	public void setPesoTotal(double peso) {
 		this.peso = peso;
 	}
 
@@ -131,6 +117,13 @@ public class Animal implements Ganaderia {
 		this.paridos = paridos;
 	}
 
+	public ArrayList<Animal> CargarCamion(Camion c, CriterioAnimal r){
+		ArrayList<Animal> aux = new ArrayList<>();
+		if (r.Cumple(this)) {
+			aux.add(this);
+		}
+		return aux;
+	}
 	
 	
 

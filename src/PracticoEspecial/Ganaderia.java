@@ -6,20 +6,13 @@ import java.util.ArrayList;
 public interface Ganaderia {
 	public abstract int getCantAnimales(); 
 	public abstract double getPesoTotal(); 
-	public abstract double getPromEdad();
-	public abstract double getPromPeso();
-	public abstract String getRaza();
-	public abstract int getEdad();
+	public abstract int getEdadTotal();
 	public abstract ArrayList<Animal>getListaAnimales();
 	//public abstract ArrayList<Ganaderia> getAnimales();
-	public abstract ArrayList<Ganaderia>filtro(Criterio c);
-	public abstract ArrayList<Ganaderia>filtroXAnimal(Criterio c);
+	public abstract ArrayList<Animal>buscar(CriterioAnimal c);
+	public abstract ArrayList<Animal> CargarCamion(Camion c, CriterioAnimal r);
+	//public abstract ArrayList<Ganaderia>filtroXAnimal(Criterio c);
 	//public abstract boolean darDeBaja(Integer i);
-	public abstract boolean Capado();
-	public abstract String getSexo();
-	public abstract int getParidos();
-	public abstract Integer getId();
-	
 	
 	
 	

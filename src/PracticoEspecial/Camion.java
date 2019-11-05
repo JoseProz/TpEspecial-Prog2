@@ -1,29 +1,22 @@
 package PracticoEspecial;
-import java.util.Iterator;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.HashSet;
+
 
 public class Camion {
 	private int id;
 	private int capacidad;
-	ArrayList<Criterio>condiciones;
-	ArrayList<Ganaderia>animales;
+	CriterioAnimal condiciones;
+	Conjunto animales;
 	
-	public Camion(int id,int c) {
+	public Camion(int id,int c,CriterioAnimal criterio) {
 		this.id=id;
 		this.capacidad=c;
-		condiciones= new ArrayList<Criterio>();
-		animales=new ArrayList<Ganaderia>();
+		condiciones = criterio;
+		animales=null;
 	}
 	
-	public int getId() {
-		return id;
-	}
+	
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public int getCapacidad() {
 		return capacidad;
@@ -33,54 +26,35 @@ public class Camion {
 		this.capacidad = capacidad;
 	}
 
-	public ArrayList<Criterio> getCondiciones() {
+	public CriterioAnimal getCondiciones() {
 		return condiciones;
 	}
 
-	public void setCondiciones(ArrayList<Criterio> condiciones) {
-		this.condiciones = condiciones;
-	}
+	
 
-	public ArrayList<Ganaderia> getAnimales() {
+	public Conjunto getAnimales() {
 		return animales;
 	}
 
-	public void setAnimales(ArrayList<Ganaderia> animales) {
+	public void setAnimales(Conjunto animales) {
 		this.animales = animales;
-	}
-
-	public void addCriterio(Criterio c) {
-		condiciones.add(c);
 	}
 	@Override
 	public String toString() {
 		return "Camion [id=" + id + ", capacidad=" + capacidad + ", animales=" + animales + "]";
 	}
-	public void cargarCamion(Animal a) {
-		animales.add(a);
-	}
-
-	public void CargarAnimal(Ganaderia g) {
-		ArrayList<Ganaderia> lista=new ArrayList<Ganaderia>();
-		Set<Ganaderia>antiduplicado=new HashSet<Ganaderia>();
-		for(Criterio c: condiciones) {
-			lista.addAll(g.filtroXAnimal(c));
-			
-			}
-			antiduplicado.addAll(lista);
-			lista.clear();
-			lista.addAll(antiduplicado);
-			
-			for(int i=0;i<lista.size();i++) {
-			if(animales.size()<capacidad) {
-					animales.add(lista.get(i));
-					
-				}
-			
+	public void cargar(Animal a) {
+		if (animales.getCantAnimales() <= this.capacidad) {
+			animales.add(a);
 			}
 		}
+			
+		
+		
+
 	
-}
+		
+  }
 		
 		
 	

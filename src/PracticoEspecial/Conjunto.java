@@ -22,13 +22,11 @@ public class Conjunto implements Ganaderia {
 		 animales.add(g);
 	 }
 	 
-	public ArrayList<Ganaderia>filtro(Criterio p){
-		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
+	public ArrayList<Animal>buscar(CriterioAnimal p){
+		ArrayList<Animal>animalesFiltrados=new ArrayList<>();
 		for(Ganaderia g:animales) {
-			if(p.compare(g)) {
-				animalesFiltrados.addAll(g.filtro(p));
+				animalesFiltrados.addAll(g.buscar(p));
 			}
-		}
 		return animalesFiltrados;
 	}
 	
@@ -38,24 +36,12 @@ public class Conjunto implements Ganaderia {
 	public void setAnimales(ArrayList<Ganaderia> animales) {
 		this.animales = animales;
 	}
-	//filtro unitario
-	public ArrayList<Ganaderia>filtroXAnimal(Criterio p){
-		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
-		for(Ganaderia g:animales) {
-				animalesFiltrados.addAll(g.filtroXAnimal(p));
-			}
-		return animalesFiltrados;
-	}
-	public String getRaza() {
-		return nombre;
-	}
-	public boolean Capado() {
-		return this.Capado();
+	
+	
+	public boolean listoVender(CriterioConjunto p){
+		return p.Cumple(this);
 	}
 	
-	public int getEdad() {
-		return this.getEdad();
-	}
 	@Override
 	public String toString() {
 		return "Conjunto=" + nombre +" "+ animales.toString() ;
@@ -66,21 +52,7 @@ public class Conjunto implements Ganaderia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getSexo() {
-		return getSexo();
-	}
-	public Integer getId() {
-		Integer id=0;
-	for(Ganaderia g:animales) {
-		id=g.getId();	
-	}
-	return id;
 	
-	}
-	
-	public int getParidos() {
-		return getParidos();
-	}
 	
 	/*public ArrayList<Ganaderia>filtroPesoXanimal(Criterio p){
 		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
@@ -92,7 +64,13 @@ public class Conjunto implements Ganaderia {
 		return animalesFiltrados;
 	}*/
 	
-	
+	public int getEdadTotal() {
+		int edad=0;
+		for(Ganaderia g:animales) {
+			edad+=g.getEdadTotal();
+		}
+		return edad;
+	}
 	
 	public int getCantAnimales() {
 		int suma=0;
@@ -110,15 +88,11 @@ public class Conjunto implements Ganaderia {
 		 return peso;
 		
 	}
-	//este es el metodo para que funcione el CriterioPeso
+	
 	public double getPromPeso() {
-		double peso=0;
-		for(Ganaderia g: animales) {
-				peso+=g.getPromPeso();
-		}
 		
 		if(animales.size()!=0) {
-			return peso/animales.size();
+			return this.getPesoTotal() /this.getCantAnimales();
 		}
 		else {
 			return 0;
@@ -128,23 +102,23 @@ public class Conjunto implements Ganaderia {
 
 	
 	public double getPromEdad(){
-		double edad=0;
-		for(Ganaderia g: animales) {
-			edad+= g.getPromEdad();
-		}
-		if(animales.size()!=0) {
-			return edad/animales.size();
+			
+			if(animales.size()!=0) {
+			return this.getEdadTotal()/this.getCantAnimales();
 		}
 		else {
 			return 0;
 		}
 	}
-public void eliminarDeEmpresa(Integer id) {
-	for(Ganaderia g: animales) {
-		if(g.getId().equals(id)) {
-			animales.remove(g);
+	
+	public ArrayList<Animal> CargarCamion(Camion c, CriterioAnimal r){
+		ArrayList<Animal> aux = new ArrayList<>();
+		for (Ganaderia g: animales) {
+			 aux.addAll( g.CargarCamion(c, r));
 		}
+		return aux;
+		
 	}
-}
+
 
 }

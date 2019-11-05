@@ -1,14 +1,14 @@
 package PracticoEspecial;
 
-public class CriterioNot implements Criterio {
-Criterio c1;
+public class CriterioNot implements CriterioAnimal {
+CriterioAnimal c1;
 
-	public CriterioNot(Criterio n) {
+	public CriterioNot(CriterioAnimal n) {
 		c1=n;
 	}
 	
-	public boolean compare(Ganaderia g) {
-		return (!c1.compare(g));
+	public boolean Cumple(Animal g) {
+		return (!c1.Cumple(g));
 			
 		}
 }

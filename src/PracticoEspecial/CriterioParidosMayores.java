@@ -1,14 +1,14 @@
 package PracticoEspecial;
 
-public class CriterioParidosMayores implements Criterio {
+public class CriterioParidosMayores implements CriterioAnimal {
 	private int paridos;
 
 	public CriterioParidosMayores(int p) {
 		this.paridos=p;
 	}
 	
-	public boolean compare(Ganaderia g) {
-		return (g.getParidos()> this.paridos);
+	public boolean Cumple(Animal a) {
+		return (a.getParidos()> this.paridos);
 	}
 	
 	

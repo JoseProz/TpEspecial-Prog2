@@ -42,45 +42,27 @@ public class EmpresaGanadera {
 		empresa.add(rebanio);
 		empresa.add(vacaAura);
 		empresa.add(vacaLupa);
-		multi.add(empresa);
 		
-		//double edad=rodeo.getPesoTotal();
-		//System.out.println(edad);
-		CriterioPeso  peso= new CriterioPeso(648);
-		//System.out.println(empresa.filtro(peso));
-		//CPesoXAnimal  peso= new CPesoXAnimal(600);
-		//System.out.println(multi.filtroXAnimal(peso));
-		CriterioRaza raza= new CriterioRaza("Holando");
-		CriterioEdad edad= new CriterioEdad(13);
-		CriterioSexo sexo= new CriterioSexo("Hembra");
-		//System.out.println(multi.filtroXAnimal(raza));
-		//CriterioOrXAnimal orA=new CriterioOrXAnimal(800, 5);
-		//System.out.println(multi.filtroXAnimal(orA));
-		Camion camion= new Camion(0,10);
-		CriterioAnd and=new CriterioAnd(peso, edad);
-		CriterioNot Not= new CriterioNot(edad);
-		camion.addCriterio(and);
-		camion.addCriterio(raza);
-		System.out.println(empresa.getListaAnimales());
-		System.out.println("-------------------------------------------------------------------");
-		camion.CargarAnimal(empresa);
-		System.out.println("-------------------------------------------------------------------");
-		System.out.println(camion);
+		System.out.println(empresa.getPromPeso());
+		System.out.println(empresa.getPromEdad());
+		System.out.println(empresa.getCantAnimales());
+		System.out.println(empresa.getPesoTotal());
 		
-		//Ministerio ministerio=new Ministerio("Ministerio");
-		//Categoria lechal= new Categoria("lechal", Not);
-		//Categoria Raza=new Categoria("Holando", raza);
-		//Categoria Sexo=new Categoria("Hembra", sexo);
-		//ministerio.addCategoria(lechal);
-		//ministerio.addCategoria(Raza);
-		//ministerio.addCategoria(Sexo);
-		//System.out.println();
-		//System.out.println(ministerio.CategoriasdeAnimal((Animal)v6));
-		//System.out.println(ministerio.animales);
-		//System.out.println(empresa.getAnimales());	
-		//System.out.println("-------------------------------------------------------------------");
-		//System.out.println(camion.toString());
-		//System.out.println("-------------------------------------------------------------------");
+		CriterioEdadAnimal menor= new CriterioEdadAnimal(24);
+		CriterioEdadAnimal mayor=new CriterioEdadAnimal(48);
+		CriterioNot inversaMayor=new CriterioNot(mayor);
+		CriterioAndAnimal and=new CriterioAndAnimal(menor, inversaMayor);
+		CriterioPesoAnimal peso= new CriterioPesoAnimal(650);
+		CriterioPesoConjunto pesopromedio= new CriterioPesoConjunto(600);
+		System.out.println(rodeo.listoVender(pesopromedio));
+		System.out.println(empresa.buscar(peso));
+		
+		Ministerio ministerio=new Ministerio("Ministerio");
+		Categoria lechal= new Categoria("lechal", peso);
+		Categoria novillo= new Categoria("novillo", and);
+		ministerio.addCategoria(novillo);
+		ministerio.addCategoria(lechal);
+		System.out.println(ministerio.CategoriasdeAnimal(v1));
 		
 		
 		
