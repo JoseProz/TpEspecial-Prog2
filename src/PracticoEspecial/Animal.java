@@ -20,8 +20,10 @@ public class Animal implements Ganaderia {
 		this.capado=c;
 		this.paridos=par;
 	}
-	public ArrayList<Ganaderia>getAnimales(){
-		return this.getAnimales();
+	public ArrayList<Animal>getListaAnimales(){
+		ArrayList<Animal> an = new ArrayList<Animal>();
+		an.add(this);
+		return an;
 	}
 	
 	/*public ArrayList<Ganaderia>filtroPesoXanimal(Criterio p){
@@ -67,7 +69,7 @@ public class Animal implements Ganaderia {
 		return this.peso;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -129,7 +131,11 @@ public class Animal implements Ganaderia {
 		this.paridos = paridos;
 	}
 	public boolean darDeBaja(Integer i) {
-		return true;
+		if (this.getId().equals(i))
+			return true;
+		else
+			return false;
+	
 	}
 	
 	

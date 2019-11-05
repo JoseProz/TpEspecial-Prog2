@@ -11,9 +11,9 @@ public class Conjunto implements Ganaderia {
 		 
 	 }
 	 public ArrayList<Animal> getListaAnimales() {
-			ArrayList<Animal> ListaAnimales = new ArrayList<Animal>() ;
+			ArrayList<Animal> ListaAnimales = new ArrayList<>() ;
 			for (Ganaderia g : animales){
-				animales.addAll(g.getAnimales());
+				ListaAnimales.addAll(g.getListaAnimales());
 			}
 			return ListaAnimales;
 		}
@@ -140,7 +140,9 @@ public class Conjunto implements Ganaderia {
 			if (animales.get(j).darDeBaja(i)) {
 				animales.remove(animales.get(j));
 				aux = true;
+				//j=animales.size();
 			}
+			else aux=false;
 		}
 		return aux;
 		

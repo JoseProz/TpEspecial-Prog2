@@ -60,21 +60,20 @@ public class Camion {
 		animales.add(a);
 	}
 
-	public void CargarAnimal(Ganaderia g) {
+	public void CargarAnimal(Conjunto j) {
 		ArrayList<Animal> AnimalesCamion = new ArrayList<Animal>();
-		ArrayList<Ganaderia>ConjuntoAnimales=new ArrayList<Ganaderia>();
-		ConjuntoAnimales = g.getAnimales();
+		AnimalesCamion = j.getListaAnimales();
 		int indice = 0;
 		int capacidad = 0;
 		
 		
-		while (capacidad<this.getCapacidad() && indice<ConjuntoAnimales.size()) {
+		while (capacidad<this.getCapacidad() && indice<AnimalesCamion.size()) {
 			for(Criterio c:condiciones) {
-			if (c.compare(ConjuntoAnimales.get(indice))) {
-				this.cargarCamion((Animal)ConjuntoAnimales.get(indice));
+			if (c.compare(AnimalesCamion.get(indice))) {
+				this.cargarCamion(AnimalesCamion.get(indice));
 				
 						
-				g.darDeBaja(ConjuntoAnimales.get(indice).getId());
+				j.darDeBaja(AnimalesCamion.get(indice).getId());
 				indice++;
 				capacidad++;
 			}else{
