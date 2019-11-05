@@ -69,8 +69,13 @@ public class Conjunto implements Ganaderia {
 	public String getSexo() {
 		return getSexo();
 	}
-	public int getId() {
-	return getId();	
+	public Integer getId() {
+		Integer id=0;
+	for(Ganaderia g:animales) {
+		id=g.getId();	
+	}
+	return id;
+	
 	}
 	
 	public int getParidos() {
@@ -134,20 +139,12 @@ public class Conjunto implements Ganaderia {
 			return 0;
 		}
 	}
-	public boolean darDeBaja(Integer i) {
-		boolean aux = false;
-		for (int j =0;j<animales.size();j++) {	
-			if (animales.get(j).darDeBaja(i)) {
-				animales.remove(animales.get(j));
-				aux = true;
-				//j=animales.size();
-			}
-			else aux=false;
+public void eliminarDeEmpresa(Integer id) {
+	for(Ganaderia g: animales) {
+		if(g.getId().equals(id)) {
+			animales.remove(g);
 		}
-		return aux;
-		
-		
-					
 	}
+}
 
 }

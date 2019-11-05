@@ -65,7 +65,7 @@ public class EmpresaGanadera {
 		System.out.println("-------------------------------------------------------------------");
 		camion.CargarAnimal(empresa);
 		System.out.println("-------------------------------------------------------------------");
-		System.out.println(empresa.getListaAnimales());
+		System.out.println(camion);
 		
 		//Ministerio ministerio=new Ministerio("Ministerio");
 		//Categoria lechal= new Categoria("lechal", Not);

@@ -60,43 +60,16 @@ public class Camion {
 		animales.add(a);
 	}
 
-	public void CargarAnimal(Conjunto j) {
-		ArrayList<Animal> AnimalesCamion = new ArrayList<Animal>();
-		AnimalesCamion = j.getListaAnimales();
-		int indice = 0;
-		int capacidad = 0;
-		
-		
-		while (capacidad<this.getCapacidad() && indice<AnimalesCamion.size()) {
-			for(Criterio c:condiciones) {
-			if (c.compare(AnimalesCamion.get(indice))) {
-				this.cargarCamion(AnimalesCamion.get(indice));
-				
-						
-				j.darDeBaja(AnimalesCamion.get(indice).getId());
-				indice++;
-				capacidad++;
-			}else{
-				indice++;
-			}
-		}
-		
-		}	
-		
-		
-		
-		
-		
-		
-		
-		
-		/*for(Criterio c: condiciones) {
+	public void CargarAnimal(Ganaderia g) {
+		ArrayList<Ganaderia> lista=new ArrayList<Ganaderia>();
+		Set<Ganaderia>antiduplicado=new HashSet<Ganaderia>();
+		for(Criterio c: condiciones) {
 			lista.addAll(g.filtroXAnimal(c));
 			
 			}
-			//antiduplicado.addAll(lista);
-			//lista.clear();
-			//lista.addAll(antiduplicado);
+			antiduplicado.addAll(lista);
+			lista.clear();
+			lista.addAll(antiduplicado);
 			
 			for(int i=0;i<lista.size();i++) {
 			if(animales.size()<capacidad) {
@@ -104,12 +77,8 @@ public class Camion {
 					
 				}
 			
-			}*/
+			}
 		}
-	public void EliminarAnimales(ArrayList<Ganaderia> n) {
-		
-		
-	}
 	
 }
 		

@@ -130,13 +130,7 @@ public class Animal implements Ganaderia {
 	public void setParidos(int paridos) {
 		this.paridos = paridos;
 	}
-	public boolean darDeBaja(Integer i) {
-		if (this.getId().equals(i))
-			return true;
-		else
-			return false;
-	
-	}
+
 	
 	
 
