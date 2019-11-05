@@ -23,7 +23,7 @@ public class EmpresaGanadera {
 		Animal v3= new Animal(9, 60, 600, "Holando", "Hembra", false, 1);
 		Animal v4= new Animal(10, 12, 300, "ppp", "Macho", true, 0);
 		Animal v5= new Animal(11, 84, 800, "Toro", "Macho", false, 0);
-		Animal v6= new Animal(12, 24, 700, "Holando", "Hembra", false, 2);
+		Animal v6= new Animal(12, 13, 700, "Holando", "Hembra", false, 2);
 		
 		manada.add(v1);
 		manada.add(v2);
@@ -47,26 +47,40 @@ public class EmpresaGanadera {
 		//double edad=rodeo.getPesoTotal();
 		//System.out.println(edad);
 		CriterioPeso  peso= new CriterioPeso(648);
-		//System.out.println(empresa.filtro(or));
+		System.out.println(empresa.filtro(peso));
 		//CPesoXAnimal  peso= new CPesoXAnimal(600);
 		//System.out.println(multi.filtroXAnimal(peso));
-		CriterioRaza raza= new CriterioRaza("hhh");
+		CriterioRaza raza= new CriterioRaza("Holando");
 		CriterioEdad edad= new CriterioEdad(13);
+		CriterioSexo sexo= new CriterioSexo("Hembra");
 		//System.out.println(multi.filtroXAnimal(raza));
 		//CriterioOrXAnimal orA=new CriterioOrXAnimal(800, 5);
 		//System.out.println(multi.filtroXAnimal(orA));
 		Camion camion= new Camion(0,10);
 		CriterioAnd and=new CriterioAnd(peso, edad);
+		CriterioNot Not= new CriterioNot(edad);
 		camion.addCriterio(and);
-		camion.addCriterio(raza);;
-		camion.addAnimal(empresa);
+		camion.addCriterio(raza);
+		camion.CargarAnimal(empresa);
+		
 		
 		Ministerio ministerio=new Ministerio("Ministerio");
-		Categoria lechal= new Categoria("lechal", edad);
+		Categoria lechal= new Categoria("lechal", Not);
+		Categoria Raza=new Categoria("Holando", raza);
+		Categoria Sexo=new Categoria("Hembra", sexo);
 		ministerio.addCategoria(lechal);
-		ministerio.Categorizar(empresa);
-			
-		System.out.println(ministerio);
+		ministerio.addCategoria(Raza);
+		ministerio.addCategoria(Sexo);
+		System.out.println();
+		System.out.println(ministerio.CategoriasdeAnimal((Animal)v6));
+		//System.out.println(ministerio.animales);
+		//System.out.println(empresa.getAnimales());	
+		//System.out.println("-------------------------------------------------------------------");
+		//System.out.println(camion.toString());
+		//System.out.println("-------------------------------------------------------------------");
+		//camion.EliminarAnimales(empresa.getAnimales());
+		//System.out.println(empresa.getAnimales());
+		
 
 	}
 

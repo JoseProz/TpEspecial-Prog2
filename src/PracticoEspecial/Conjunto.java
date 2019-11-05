@@ -3,14 +3,22 @@ import java.util.ArrayList;
 
 public class Conjunto implements Ganaderia {
 	ArrayList<Ganaderia>animales;
+	ArrayList<Animal>listaAnimales;
 	private String nombre;
 
 	 public Conjunto(String n) {
 		 animales= new ArrayList<Ganaderia>();
+		 listaAnimales= new ArrayList<Animal>();
 		 this.nombre=n;
 		 
 	 }
-	 public void add(Ganaderia g) {
+	 public ArrayList<Animal> getListaAnimales() {
+		return listaAnimales;
+	}
+	public void setListaAnimales(ArrayList<Animal> listaAnimales) {
+		this.listaAnimales = listaAnimales;
+	}
+	public void add(Ganaderia g) {
 		 animales.add(g);
 	 }
 	 
@@ -24,6 +32,12 @@ public class Conjunto implements Ganaderia {
 		return animalesFiltrados;
 	}
 	
+	public ArrayList<Ganaderia> getAnimales() {
+		return animales;
+	}
+	public void setAnimales(ArrayList<Ganaderia> animales) {
+		this.animales = animales;
+	}
 	//filtro unitario
 	public ArrayList<Ganaderia>filtroXAnimal(Criterio p){
 		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
@@ -35,13 +49,16 @@ public class Conjunto implements Ganaderia {
 	public String getRaza() {
 		return nombre;
 	}
+	public boolean Capado() {
+		return this.Capado();
+	}
 	
 	public int getEdad() {
 		return this.getEdad();
 	}
 	@Override
 	public String toString() {
-		return "Conjunto=" + nombre;
+		return "Conjunto=" + nombre +" "+ animales.toString() ;
 	}
 	public String getNombre() {
 		return nombre;
@@ -49,8 +66,16 @@ public class Conjunto implements Ganaderia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	public String getSexo() {
+		return getSexo();
+	}
+	public int getId() {
+	return getId();	
+	}
 	
-	
+	public int getParidos() {
+		return getParidos();
+	}
 	
 	/*public ArrayList<Ganaderia>filtroPesoXanimal(Criterio p){
 		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();

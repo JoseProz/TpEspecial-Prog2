@@ -21,12 +21,17 @@ public class Animal implements Ganaderia {
 		this.paridos=par;
 	}
 	
-	public ArrayList<Ganaderia>filtroPesoXanimal(Criterio p){
+	/*public ArrayList<Ganaderia>filtroPesoXanimal(Criterio p){
 		ArrayList<Ganaderia>animalesFiltrados=new ArrayList<>();
 			if(p.compare(this)) {
 				animalesFiltrados.add(this);
 			}
 		return animalesFiltrados;
+	}*/
+	
+	public boolean Capado() {
+		return this.capado;
+		
 	}
 	
 	

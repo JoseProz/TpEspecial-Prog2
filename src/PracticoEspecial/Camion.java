@@ -1,4 +1,5 @@
 package PracticoEspecial;
+import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
@@ -55,26 +56,63 @@ public class Camion {
 	public String toString() {
 		return "Camion [id=" + id + ", capacidad=" + capacidad + ", animales=" + animales + "]";
 	}
+	public void cargarCamion(Animal a) {
+		animales.add(a);
+	}
 
-	public void addAnimal(Ganaderia g) {
-		ArrayList<Ganaderia> lista=new ArrayList<Ganaderia>();
-		Set<Ganaderia>antiduplicado=new HashSet<Ganaderia>();
-		for(Criterio c: condiciones) {
-			lista.addAll(g.filtroXAnimal(c));
+	public void CargarAnimal(Ganaderia g) {
+		ArrayList<Animal> AnimalesCamion = new ArrayList<Animal>();
+		ArrayList<Ganaderia>ConjuntoAnimales=new ArrayList<Ganaderia>();
+		ConjuntoAnimales = g.getAnimales();
+		int indice = 0;
+		int capacidad = 0;
+		
+		
+		while (capacidad<this.getCapacidad() && indice<ConjuntoAnimales.size()) {
+			for(Criterio c:condiciones) {
+			if (c.compare(ConjuntoAnimales.get(indice))) {
+				this.cargarCamion((Animal)ConjuntoAnimales.get(indice));
+				
+						
+				g.darDeBaja(ConjuntoAnimales.get(indice).getId());
+				indice++;
+				capacidad++;
+			}else{
+				indice++;
+			}
 		}
-			antiduplicado.addAll(lista);
-			lista.clear();
-			lista.addAll(antiduplicado);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*for(Criterio c: condiciones) {
+			lista.addAll(g.filtroXAnimal(c));
+			
+			}
+			//antiduplicado.addAll(lista);
+			//lista.clear();
+			//lista.addAll(antiduplicado);
 			
 			for(int i=0;i<lista.size();i++) {
-			
 			if(animales.size()<capacidad) {
 					animales.add(lista.get(i));
-			}
+					
+				}
 			
-			}
+			}*/
 		}
-		}
+	public void EliminarAnimales(ArrayList<Ganaderia> n) {
+		
+		
+	}
+	
+}
 		
 		
 	
