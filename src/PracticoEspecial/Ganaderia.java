@@ -13,6 +13,7 @@ public interface Ganaderia {
 	public abstract ArrayList<Ganaderia> getAnimales();
 	public abstract ArrayList<Ganaderia>filtro(Criterio c);
 	public abstract ArrayList<Ganaderia>filtroXAnimal(Criterio c);
+	public abstract boolean darDeBaja(Integer i);
 	public abstract boolean Capado();
 	public abstract String getSexo();
 	public abstract int getParidos();

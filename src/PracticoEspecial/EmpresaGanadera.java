@@ -61,25 +61,28 @@ public class EmpresaGanadera {
 		CriterioNot Not= new CriterioNot(edad);
 		camion.addCriterio(and);
 		camion.addCriterio(raza);
+		System.out.println(empresa);
+		System.out.println("-------------------------------------------------------------------");
 		camion.CargarAnimal(empresa);
+		System.out.println("-------------------------------------------------------------------");
+		System.out.println(empresa);
 		
-		
-		Ministerio ministerio=new Ministerio("Ministerio");
-		Categoria lechal= new Categoria("lechal", Not);
-		Categoria Raza=new Categoria("Holando", raza);
-		Categoria Sexo=new Categoria("Hembra", sexo);
-		ministerio.addCategoria(lechal);
-		ministerio.addCategoria(Raza);
-		ministerio.addCategoria(Sexo);
-		System.out.println();
-		System.out.println(ministerio.CategoriasdeAnimal((Animal)v6));
+		//Ministerio ministerio=new Ministerio("Ministerio");
+		//Categoria lechal= new Categoria("lechal", Not);
+		//Categoria Raza=new Categoria("Holando", raza);
+		//Categoria Sexo=new Categoria("Hembra", sexo);
+		//ministerio.addCategoria(lechal);
+		//ministerio.addCategoria(Raza);
+		//ministerio.addCategoria(Sexo);
+		//System.out.println();
+		//System.out.println(ministerio.CategoriasdeAnimal((Animal)v6));
 		//System.out.println(ministerio.animales);
-		//System.out.println(empresa.getAnimales());	
-		//System.out.println("-------------------------------------------------------------------");
-		//System.out.println(camion.toString());
-		//System.out.println("-------------------------------------------------------------------");
-		//camion.EliminarAnimales(empresa.getAnimales());
-		//System.out.println(empresa.getAnimales());
+		System.out.println(empresa.getAnimales());	
+		System.out.println("-------------------------------------------------------------------");
+		System.out.println(camion.toString());
+		System.out.println("-------------------------------------------------------------------");
+		
+		
 		
 
 	}

@@ -3,21 +3,21 @@ import java.util.ArrayList;
 
 public class Conjunto implements Ganaderia {
 	ArrayList<Ganaderia>animales;
-	ArrayList<Animal>listaAnimales;
 	private String nombre;
 
 	 public Conjunto(String n) {
 		 animales= new ArrayList<Ganaderia>();
-		 listaAnimales= new ArrayList<Animal>();
 		 this.nombre=n;
 		 
 	 }
 	 public ArrayList<Animal> getListaAnimales() {
-		return listaAnimales;
-	}
-	public void setListaAnimales(ArrayList<Animal> listaAnimales) {
-		this.listaAnimales = listaAnimales;
-	}
+			ArrayList<Animal> ListaAnimales = new ArrayList<Animal>() ;
+			for (Ganaderia g : animales){
+				animales.addAll(g.getAnimales());
+			}
+			return ListaAnimales;
+		}
+	
 	public void add(Ganaderia g) {
 		 animales.add(g);
 	 }
@@ -133,6 +133,19 @@ public class Conjunto implements Ganaderia {
 		else {
 			return 0;
 		}
+	}
+	public boolean darDeBaja(Integer i) {
+		boolean aux = false;
+		for (int j =0;j<animales.size();j++) {	
+			if (animales.get(j).darDeBaja(i)) {
+				animales.remove(animales.get(j));
+				aux = true;
+			}
+		}
+		return aux;
+		
+		
+					
 	}
 
 }
